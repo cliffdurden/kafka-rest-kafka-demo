@@ -1,0 +1,4 @@
+rootProject.name = 'kafka-rest-kafka-demo'
+include("processor-demo")
+include("dummy-kafka-producer")
+include("dummy-server")

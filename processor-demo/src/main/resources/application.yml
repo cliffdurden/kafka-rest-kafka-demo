@@ -1,0 +1,23 @@
+app:
+  input.topic: data-to-process
+  output.topic: processed-data
+
+server.port: 0
+
+spring:
+  kafka:
+    listener:
+      ack-mode: MANUAL
+      type: batch
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: demo-processor
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+      max-poll-records: 10
+      fetch-max-wait: 5s
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
